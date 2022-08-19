@@ -1,11 +1,16 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 /**
  * COMPONENT
  */
-export const Home = (props) => {
-  const { firstName } = props
+
+const Home = () => {
+  const dispatch = useDispatch()
+
+  const firstName = useSelector((state) => {
+    return state.auth.firstName
+  })
 
   return (
     <div>
@@ -14,13 +19,4 @@ export const Home = (props) => {
   )
 }
 
-/**
- * CONTAINER
- */
-const mapState = (state) => {
-  return {
-    firstName: state.auth.firstName,
-  }
-}
-
-export default connect(mapState)(Home)
+export default Home

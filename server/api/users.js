@@ -4,6 +4,8 @@ const {
 } = require('../db')
 module.exports = router
 
+//Get all users
+//Route: /api/users
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll()
